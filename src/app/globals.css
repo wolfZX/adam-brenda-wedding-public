@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+html {
+  --scroll-behavior: smooth!important;
+  scroll-behavior: smooth!important;
+}
+
+@layer base {
+  @font-face {
+    font-family: "Bodoni 72 Smallcaps Book";
+    src: url("../fonts/bodoni-72-smallcaps-book.ttf");
+  }
+  @font-face {
+    font-family: "Snell BT Bold";
+    src: url("../fonts/snell-bt-bold.otf");
+  }
+  h1 {
+    @apply text-5xl lg:text-6xl;
+    font-family: "Bodoni 72 Smallcaps Book";
+  }
+  h3 {
+    @apply text-3xl lg:text-4xl;
+    font-family: "Bodoni 72 Smallcaps Book";
+  }
+  p {
+    @apply text-base lg:text-xl;
+  }
+}
+
+@layer components {
+  .container {
+    @apply p-4;
+  }
+  .header {
+    @apply text-center border-b pb-2 mb-4;
+  }
+  .required-text {
+    @apply after:content-['*'] after:text-red-500 after:ml-1;
+  }
+  .btn-primary-effect {
+    @apply shadow-[-3px_-5px_5px_0_rgba(0,0,0,0.25)_inset,2px_3px_5px_0_#90BDFF_inset] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)];
+  }
+  .snell-font {
+    font-family: "Snell BT Bold";
+  }
+  .game-text {
+    @apply text-base;
+  }
+}
+
+@layer utilities {
+  .pause-animate {
+    animation-play-state: paused;
+  }
+  .unpause-animate {
+    animation-play-state: running;
+  }
+}
